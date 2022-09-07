@@ -49,9 +49,9 @@ contract Virgo is Ownable {
     }
 
     // The ADE TOKEN!
-    ADEToken public ade;
+    ADEToken public constant ade;
     // The BENCH TOKEN!
-    Spica public spica;
+    Spica public constant spica;
     // Dev address.
     address public devaddr;
     // ADE tokens created per block.
@@ -83,8 +83,8 @@ contract Virgo is Ownable {
         address _devaddr,
         uint256 _startBlock
     ) public {
-        ade = _ade;
-        spica = _spica;
+        const ade = _ade;
+        const spica = _spica;
         devaddr = _devaddr;
         adePerBlock = ade.SUPPLY_PER_BLOCK();
         startBlock = _startBlock;
@@ -210,7 +210,7 @@ contract Virgo is Ownable {
         }
         uint256 multiplier = getMultiplier(pool.lastRewardBlock, block.number);
         uint256 adeReward = multiplier.mul(adePerBlock).mul(pool.allocPoint).div(totalAllocPoint);
-        // ade.mint(devaddr, adeReward.div(10));
+        ade.mint(devaddr, adeReward.div(10));
         ade.mint(address(spica), adeReward);
         pool.accADEPerShare = pool.accADEPerShare.add(adeReward.mul(1e12).div(lpSupply));
         pool.lastRewardBlock = block.number;

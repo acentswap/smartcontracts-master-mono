@@ -1,9 +1,9 @@
 pragma solidity >= 0.6.12;
 
 contract WACE {
-    string public name     = "Wrapped ACE";
-    string public symbol   = "WACE";
-    uint8  public decimals = 18;
+    string public constant name     = "Wrapped ACE";
+    string public constant symbol   = "WACE";
+    uint8  public constant decimals = 18;
 
     event  Approval(address indexed src, address indexed guy, uint wad);
     event  Transfer(address indexed src, address indexed dst, uint wad);

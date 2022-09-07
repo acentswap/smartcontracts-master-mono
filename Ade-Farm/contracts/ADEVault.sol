@@ -182,11 +182,11 @@ contract ADEVault is Ownable, Pausable {
      * @notice Sets treasury address
      * @dev Only callable by the contract owner.
      */
-    function setTreasury(address _treasury) external onlyOwner {
-        require(_treasury != address(0), "Cannot be zero address");
-        treasury = _treasury;
-        emit SetTreasury(_treasury);
-    }
+    // function setTreasury(address _treasury) external onlyOwner {
+    //     require(_treasury != address(0), "Cannot be zero address");
+    //     treasury = _treasury;
+    //     emit SetTreasury(_treasury);
+    // }
 
     /**
      * @notice Sets performance fee

@@ -17,7 +17,7 @@ contract Spica is ERC20('Spica Token', 'SPICA'), Ownable {
     }
 
     // The ADE TOKEN!
-    ADEToken public ade;
+    const ADEToken public ade;
 
     constructor(
         ADEToken _ade
@@ -27,7 +27,7 @@ contract Spica is ERC20('Spica Token', 'SPICA'), Ownable {
 
     // Safe ADE transfer function, just in case if rounding error causes pool to not have enough ADEs.
     function safeADETransfer(address _to, uint256 _amount) public onlyOwner {
-        uint256 adeBal = ade.balanceOf(address(this));
+        const adeBal = ade.balanceOf(address(this));
         if (_amount > adeBal) {
             ade.transfer(_to, adeBal);
         } else {
