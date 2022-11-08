@@ -49,9 +49,9 @@ contract Virgo is Ownable {
     }
 
     // The ADE TOKEN!
-    ADEToken public ade;
+    ADEToken public immutable ade;
     // The BENCH TOKEN!
-    Spica public spica;
+    Spica public immutable spica;
     // Dev address.
     address public devaddr;
     // ADE tokens created per block.
